@@ -52,6 +52,7 @@ public class Menu {
 				agregarCliente();
 				break;
 			case 3:
+				//Supuse que primero listaban los clientes y despues agregaban los nuevos datos del cliente a editar(Pueden cambiar uno o mas datos a la vez)
 				System.out.println("Editar cliente");
 				int op;
 				do {

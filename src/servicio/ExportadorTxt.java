@@ -9,7 +9,7 @@ import java.util.List;
 import modelo.Cliente;
 
 public class ExportadorTxt extends Exportador{
-
+	
 	public void exportar(String fileName, List<Cliente> listaClientes) {
 		
 		try {
