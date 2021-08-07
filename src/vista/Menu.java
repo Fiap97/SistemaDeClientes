@@ -143,12 +143,13 @@ public class Menu {
 		apellido=scanner.nextLine();
 		System.out.println("ingrese años de cliente");
 		aniosDeCliente=scanner.nextLine();
-		clienteServicio.agregarCliente(run, nombre, apellido, aniosDeCliente);
+		System.out.println(clienteServicio.agregarCliente(run, nombre, apellido, aniosDeCliente));
+		
 	}
 	
 	public void cambiarEstado(String run) {
 		
-		clienteServicio.cambiarEstado(run);
+		System.out.println(clienteServicio.cambiarEstado(run));
 		
 	}
 	
@@ -164,7 +165,8 @@ public class Menu {
 		apellido=scanner.nextLine();
 		System.out.println("ingrese años de cliente");
 		aniosDeCliente=scanner.nextLine();
-		clienteServicio.editarCliente(run, nombre, apellido, aniosDeCliente);
+		System.out.println(clienteServicio.editarCliente(run, nombre, apellido, aniosDeCliente));
+		
 	}
 
 	public void importarDatos(String ruta,List<Cliente> listaCliente) {

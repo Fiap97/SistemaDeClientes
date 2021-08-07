@@ -30,42 +30,54 @@ public class ClienteServicio {
 		);
 		
 	}
-	public void agregarCliente(String run,String nombre, String apellido, String aniosCliente) {
+	public String agregarCliente(String run,String nombre, String apellido, String aniosCliente) {
 		
-		Cliente cliente = new Cliente(run,nombre,apellido,aniosCliente);
-		listaClientes.add(cliente);
-		System.out.println("Cliente agregado correctamente");
+		String resultado="";
+		
+		for(Cliente cliente: listaClientes) {
+			if(cliente.getRunCliente().equalsIgnoreCase(run)) {
+				return resultado= "Cliente ya existe";
+			}
+		}
+		Cliente clienteNuevo = new Cliente(run,nombre,apellido,aniosCliente);
+		listaClientes.add(clienteNuevo);
+		resultado= "Cliente agregado correctamente";
+		return resultado;
 		
 	}
 	
 	//Hago este cambio de estado suponiendo que primero listaron a los clientes y vieron los estados que tenia cada uno
-	public void cambiarEstado(String run) {
+	public String cambiarEstado(String run) {
+		
 		
 		for(Cliente cliente : listaClientes){
 			if(cliente.getRunCliente().equals(run)) {
 				if(cliente.getNombreCategoria()==CategoriaEnum.Activo) {
 					cliente.setNombreCategoria(CategoriaEnum.Inactivo);
-					System.out.println("Estado cambiado a inactivo");
+					return "Estado cambiado a inactivo";
 				}
 				else {
 					cliente.setNombreCategoria(CategoriaEnum.Activo);
-					System.out.println("Estado cambiado a activo");
+					return "Estado cambiado a activo";
 				}
-			}
+			}	
 		}
+		return "Cliente no se encuentra";
 		
 	}
 	
-	public void editarCliente(String run,String nombre, String apellido, String aniosCliente) {
+	public String editarCliente(String run,String nombre, String apellido, String aniosCliente) {
 		
-
+		
 		for(Cliente cliente : listaClientes){
 			if(cliente.getRunCliente().equals(run)) {
 				cliente.setNombreCliente(nombre);
 				cliente.setApellidoCliente(apellido);
 				cliente.setAniosCliente(aniosCliente);
+				return "Cliente editado correctamente";
 			}
 		}
+		return "Cliente no ha sido encontrado";
 		
 	}
 
